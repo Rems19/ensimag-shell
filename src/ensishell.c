@@ -116,7 +116,7 @@ void print_bg_processes() {
     printf("---------------------------------------------\n");
     Process_t *current = bg_processes;
     while (current != NULL) {
-        printf("%7d %s\n", current->pid, current->name);
+        printf("%-7d %s\n", current->pid, current->name);
         current = current->next;
     }
 }
@@ -311,7 +311,7 @@ int main() {
             }
 
             // On prépare notre nouveau tableau de mot, de la bonne taille (+ 1 pour le NULL à la fin)
-            char **words = malloc(total_word_count + 1);
+            char **words = malloc((total_word_count + 1) * sizeof(char *));
             int current_index = 0;
             for (int j = 0; j < word_count; j++) {
                 if (is_wordexp[j]) { // Si c'est un wordexp, on place toutes les valeurs possibles dans le nouveau tableau
