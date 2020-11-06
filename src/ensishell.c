@@ -12,6 +12,9 @@
 #include <errno.h>
 #include <wait.h>
 #include <fcntl.h>
+#include <libguile.h>
+#include <wordexp.h>
+#include <stdbool.h>
 
 #include "variante.h"
 #include "readcmd.h"
@@ -29,9 +32,6 @@ pid_t execute(char **cmd, int fd_in, int fd_out);
  */
 
 #if USE_GUILE == 1
-#include <libguile.h>
-#include <wordexp.h>
-#include <stdbool.h>
 
 int question6_executer(char *line)
 {
